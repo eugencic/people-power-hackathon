@@ -4,14 +4,14 @@ from psycopg2 import sql
 
 app = Flask(__name__)
 
-# Replace these values with your actual PostgreSQL credentials
 db_params = {
     'dbname': 'database',
     'user': 'postgres',
     'password': 'password',
     'host': 'localhost',
-    'port': '5432'
+    'port': '5435'
 }
+
 
 def get_all_records(table_name):
     try:
@@ -30,15 +30,15 @@ def get_all_records(table_name):
 
         return records
     except psycopg2.Error as e:
-        print("Error connecting to PostgreSQL:", e)
+        print("Error connecting to PostgresSQL:", e)
         return []
 
-# Parametrized endpoint for fetching all records of a table
+
 @app.route('/api/<table_name>', methods=['GET'])
 def get_records(table_name):
     records = get_all_records(table_name)
     return jsonify(records)
 
+
 if __name__ == '__main__':
     app.run(debug=True)
-

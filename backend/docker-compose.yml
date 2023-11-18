@@ -5,8 +5,9 @@ services:
     container_name: database
     image: postgres:latest
     ports:
-      - "5432:5432"
+      - "5435:5432"
     environment:
+      POSTGRES_USER: postgres
       POSTGRES_PASSWORD: password
       POSTGRES_DB: database
     healthcheck:
