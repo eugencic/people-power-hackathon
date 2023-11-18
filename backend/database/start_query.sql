@@ -84,16 +84,16 @@ INSERT INTO Region (region_id, region_name) VALUES (41, 'Singerei');
 INSERT INTO Region (region_id, region_name) VALUES (42, 'Balti');
 
 INSERT INTO Category (category_name) VALUES
-    ('healthcare'),
-    ('technology'),
-    ('environment'),
-    ('culture'),
-    ('agriculture'),
-    ('finance'),
-    ('sports'),
-    ('tourism'),
-    ('transportation'),
-    ('social services');
+    ('Asistență Medicală'),
+    ('Tehnologie'),
+    ('Mediu'),
+    ('Cultură'),
+    ('Agricultură'),
+    ('Finanțe'),
+    ('Sport'),
+    ('Turism'),
+    ('Transport'),
+    ('Servicii Sociale');
 
 INSERT INTO Region_budget (budget_amount, budget_year, region_id) VALUES
     (5000, 2023, 2),
@@ -117,8 +117,8 @@ INSERT INTO Project (
     ('Curățarea Zonelor Poluate', 'Finalizat cu succes, Proiectul Edineț 3 s-a concentrat pe curățarea zonelor poluate, contribuind la conservarea mediului. Proiectul avea ca scop restaurarea și protejarea habitatelor naturale în beneficiul comunității.', 1, 'Finalizat', 3, 'edinet_project4.pdf', 'Mediu', 0, 0, 0, 1400, 0, 0),
     ('Extinderea Infrastructurii Educaționale', 'Extinderea infrastructurii educaționale pentru îmbunătățirea accesului la educație.', 1, 'În desfășurare', 1, 'edinet_project5.pdf', 'Educație', 0, 0, 0, 650, 0, 0),
     ('Conservarea Siturilor Istorice', 'Acest proiect viitor își propune să conserve și să protejeze siturile istorice, asigurându-se că bogăția patrimoniului cultural al comunității este păstrată pentru generațiile viitoare.', 1, 'Planificat', 4, 'edinet_project6.pdf', 'Cultură', 50, 20, 0, 900, 50, 20),
-    ('Promovarea Practicilor Agricole Durabile', 'Acest proiect în desfășurare se concentrează pe promovarea și implementarea practicilor agricole durabile. Vizează îmbunătățirea productivității agricole, minimizând în același timp impactul asupra mediului.', 1, 'În desfășurare', 5, 'edinet_project7.pdf', 'Agricultură', 0, 0, 0, 1200, 0, 0),
-    ('Construirea unei Facilități Sportive pentru Comunitate', 'Vizând o comunitate mai sănătoasă, acest proiect planificat își propune să construiască o facilitate sportivă care să încurajeze activitatea fizică și implicarea comunității.', 2, 'Planificat', 6, 'edinet_project8.pdf', 'Sport', 0, 0, 0, 850, 20, 10),
+    ('Promovarea Practicilor Agricole Durabile', 'Acest proiect în desfășurare se concentrează pe promovarea și implementarea practicilor agricole durabile. Vizează îmbunătățirea productivității agricole, minimizând în același timp impactul asupra mediului.', 1, 'Aprobat', 5, 'edinet_project7.pdf', 'Agricultură', 0, 0, 0, 1200, 0, 0),
+    ('Construirea unei Facilități Sportive pentru Comunitate', 'Vizând o comunitate mai sănătoasă, acest proiect planificat își propune să construiască o facilitate sportivă care să încurajeze activitatea fizică și implicarea comunității.', 2, 'Aprobat', 6, 'edinet_project8.pdf', 'Sport', 0, 0, 0, 850, 20, 10),
     ('Stimularea Turismului Local', 'Axat pe dezvoltarea economică, acest proiect în desfășurare se concentrează pe stimularea turismului local. Își propune să prezinte atracțiile unice ale comunității, atrăgând vizitatori și stimulând creșterea economică.', 2, 'În desfășurare', 8, 'edinet_project9.pdf', 'Turism', 80, 30, 0, 1300, 80, 30),
     ('Îmbunătățirea Transportului Public', 'Cu privire la îmbunătățirea mobilității, acest proiect planificat își propune să îmbunătățească serviciile de transport public. Vizează un sistem de transport mai eficient și accesibil pentru comunitate.', 2, 'Planificat', 9, 'edinet_project10.pdf', 'Transport', 0, 0, 0, 1100, 0, 0),
     ('Extinderea Serviciilor de Suport Social', 'Acest proiect în desfășurare este dedicat extinderii serviciilor de suport social, abordând diversele nevoi ale comunității și promovând un mediu de susținere pentru toți locuitorii.', 2, 'În desfășurare', 10, 'edinet_project11.pdf', 'Servicii Sociale', 50, 20, 0, 900, 50, 20);
@@ -185,8 +185,8 @@ INSERT INTO Project (
     ('Renovarea Clinicilor de Sănătate', 'Proiectul vizează renovarea și modernizarea clinicilor de sănătate din regiunea Rîșcani pentru a oferi servicii medicale de calitate. În prezent, proiectul se află în faza de implementare, având un buget necesar de 850 de unități monetare.', 3, 'În desfășurare', 1, 'riscani_project1.pdf', 'Asistență Medicală', 0, 0, 0, 850, 0, 0),
     ('Inițiativa de Educație Tehnologică', 'Proiectul vizează dezvoltarea unei inițiative de educație tehnologică pentru a stimula interesul și competențele în domeniul tehnologic în rândul comunității. Deși în faza de planificare, se estimează un buget necesar de 1200 de unități monetare.', 3, 'Planificat', 2, 'riscani_project2.pdf', 'Tehnologie', 0, 0, 0, 1200, 50, 20),
     ('Îmbunătățirea Spațiilor Verzi', 'Proiectul, finalizat cu succes, a avut ca obiectiv îmbunătățirea și extinderea spațiilor verzi din regiunea Rîșcani, contribuind la calitatea mediului înconjurător. Bugetul alocat pentru acest proiect a fost de 1600 de unități monetare.', 3, 'Finalizat', 3, 'riscani_project3.pdf', 'Mediu', 0, 0, 0, 1600, 0, 0),
-    ('Modernizarea Infrastructurii Școlare', 'Proiectul se concentrează pe modernizarea infrastructurii școlare, inclusiv renovarea școlilor și dotarea cu echipamente moderne. În prezent, proiectul se află în desfășurare, cu un buget necesar de 700 de unități monetare.', 3, 'În desfășurare', 1, 'riscani_project4.pdf', 'Educație', 0, 0, 0, 700, 0, 0),
-    ('Promovarea Evenimentelor Culturale', 'Proiectul are ca scop promovarea evenimentelor culturale în regiunea Rîșcani, contribuind la conservarea și dezvoltarea patrimoniului cultural. Este în faza de planificare, cu un buget estimat de 950 de unități monetare.', 3, 'Planificat', 4, 'riscani_project5.pdf', 'Cultură', 0, 0, 0, 950, 70, 30),
+    ('Modernizarea Infrastructurii Școlare', 'Proiectul se concentrează pe modernizarea infrastructurii școlare, inclusiv renovarea școlilor și dotarea cu echipamente moderne. În prezent, proiectul se află în desfășurare, cu un buget necesar de 700 de unități monetare.', 3, 'Aprobat', 1, 'riscani_project4.pdf', 'Educație', 0, 0, 0, 700, 0, 0),
+    ('Promovarea Evenimentelor Culturale', 'Proiectul are ca scop promovarea evenimentelor culturale în regiunea Rîșcani, contribuind la conservarea și dezvoltarea patrimoniului cultural. Este în faza de planificare, cu un buget estimat de 950 de unități monetare.', 3, 'Aprobat', 4, 'riscani_project5.pdf', 'Cultură', 0, 0, 0, 950, 70, 30),
     ('Program de Formare Agricolă', 'Proiectul vizează implementarea unui program de formare agricolă pentru agricultorii din regiunea Rîșcani, promovând practici agricole durabile. Proiectul este în desfășurare, cu un buget necesar de 1400 de unități monetare.', 3, 'În desfășurare', 5, 'riscani_project6.pdf', 'Agricultură', 0, 0, 0, 1400, 0, 0),
     ('Construcția unei Facilități Sportive', 'Proiectul propune construcția unei facilități sportive moderne pentru comunitatea din Rîșcani, facilitând activitățile sportive și recreative. Este în faza de planificare, cu un buget estimat de 800 de unități monetare.', 3, 'Planificat', 6, 'riscani_project7.pdf', 'Sport', 0, 0, 0, 800, 40, 15),
     ('Strategie de Dezvoltare a Turismului', 'Proiectul are ca obiectiv elaborarea și implementarea unei strategii de dezvoltare a turismului în regiunea Rîșcani, promovând atracțiile locale și facilitând creșterea turismului. Este în desfășurare, cu un buget necesar de 1100 de unități monetare.', 4, 'În desfășurare', 8, 'riscani_project8.pdf', 'Turism', 0, 0, 0, 1100, 90, 40),
@@ -255,8 +255,8 @@ INSERT INTO Project (
     ('Renovarea Clinicilor de Sănătate Glodeni', 'Proiectul vizează renovarea și modernizarea clinicilor de sănătate din regiunea Glodeni pentru a oferi servicii medicale de calitate. În prezent, proiectul se află în desfășurare, având un buget necesar de 800 de unități monetare.', 5, 'În desfășurare', 1, 'glodeni_project1.pdf', 'Asistență Medicală', 0, 0, 0, 800, 0, 0),
     ('Inițiativa de Educație Tehnologică Glodeni', 'Proiectul vizează dezvoltarea unei inițiative de educație tehnologică în regiunea Glodeni pentru a stimula interesul și competențele în domeniul tehnologic. Deși în faza de planificare, se estimează un buget necesar de 1100 de unități monetare.', 5, 'Planificat', 2, 'glodeni_project2.pdf', 'Tehnologie', 0, 0, 0, 1100, 60, 25),
     ('Îmbunătățirea Spațiilor Verzi Glodeni', 'Proiectul, finalizat cu succes, a avut ca obiectiv îmbunătățirea și extinderea spațiilor verzi din regiunea Glodeni, contribuind la calitatea mediului înconjurător. Bugetul alocat pentru acest proiect a fost de 1500 de unități monetare.', 5, 'Finalizat', 3, 'glodeni_project3.pdf', 'Mediu', 0, 0, 0, 1500, 0, 0),
-    ('Modernizarea Infrastructurii Școlare Glodeni', 'Proiectul se concentrează pe modernizarea infrastructurii școlare în regiunea Glodeni, inclusiv renovarea școlilor și dotarea cu echipamente moderne. În prezent, proiectul se află în desfășurare, cu un buget necesar de 700 de unități monetare.', 5, 'În desfășurare', 1, 'glodeni_project4.pdf', 'Educație', 0, 0, 0, 700, 0, 0),
-    ('Promovarea Evenimentelor Culturale Glodeni', 'Proiectul are ca scop promovarea evenimentelor culturale în regiunea Glodeni, contribuind la conservarea și dezvoltarea patrimoniului cultural. Este în faza de planificare, cu un buget estimat de 900 de unități monetare.', 5, 'Planificat', 4, 'glodeni_project5.pdf', 'Cultură', 0, 0, 0, 900, 40, 15),
+    ('Modernizarea Infrastructurii Școlare Glodeni', 'Proiectul se concentrează pe modernizarea infrastructurii școlare în regiunea Glodeni, inclusiv renovarea școlilor și dotarea cu echipamente moderne. În prezent, proiectul se află în desfășurare, cu un buget necesar de 700 de unități monetare.', 5, 'Aprobat', 1, 'glodeni_project4.pdf', 'Educație', 0, 0, 0, 700, 0, 0),
+    ('Promovarea Evenimentelor Culturale Glodeni', 'Proiectul are ca scop promovarea evenimentelor culturale în regiunea Glodeni, contribuind la conservarea și dezvoltarea patrimoniului cultural. Este în faza de planificare, cu un buget estimat de 900 de unități monetare.', 5, 'Aprobat', 4, 'glodeni_project5.pdf', 'Cultură', 0, 0, 0, 900, 40, 15),
     ('Program de Formare Agricolă Glodeni', 'Proiectul vizează implementarea unui program de formare agricolă în regiunea Glodeni pentru agricultorii locali, promovând practici agricole durabile. Proiectul este în desfășurare, cu un buget necesar de 1300 de unități monetare.', 5, 'În desfășurare', 5, 'glodeni_project6.pdf', 'Agricultură', 0, 0, 0, 1300, 0, 0),
     ('Construcția unei Facilități Sportive Glodeni', 'Proiectul propune construcția unei facilități sportive moderne în regiunea Glodeni, facilitând activitățile sportive și recreative. Este în faza de planificare, cu un buget estimat de 750 de unități monetare.', 5, 'Planificat', 6, 'glodeni_project7.pdf', 'Sport', 0, 0, 0, 750, 30, 10),
     ('Strategie de Dezvoltare a Turismului Glodeni', 'Proiectul are ca obiectiv elaborarea și implementarea unei strategii de dezvoltare a turismului în regiunea Glodeni, promovând atracțiile locale și facilitând creșterea turismului. Este în desfășurare, cu un buget necesar de 1200 de unități monetare.', 6, 'În desfășurare', 8, 'glodeni_project8.pdf', 'Turism', 0, 0, 0, 1200, 80, 35),
