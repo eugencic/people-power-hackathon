@@ -95,13 +95,30 @@ def get_projects_and_expenses_by_region_and_year(region_id, year):
 
         query = sql.SQL("""
             SELECT
-                proj.*,
-                e.*,
+                proj.project_id,
+                proj.project_name,
+                proj.project_description,
+                proj.budget_id,
+                proj.project_status,
+                proj.category_id,
+                proj.project_pdf_file_name,
+                proj.likes,
+                proj.dislikes,
+                proj.votes,
+                proj.necessary_budget,
+                proj.allocated_budget,
+                proj.used_budget,
                 rb.budget_id AS rb_budget_id,
                 rb.budget_amount AS rb_budget_amount,
                 rb.budget_year AS rb_budget_year,
                 rb.region_id AS rb_region_id,
-                c.category_name
+                c.category_name,
+                json_agg(json_build_object(
+                    'expense_id', e.expense_id,
+                    'expense_name', e.expense_name,
+                    'expense_amount', e.expense_amount,
+                    'expense_pdf_file_name', e.expense_pdf_file_name
+                )) AS expenses
             FROM
                 region r
                 JOIN region_budget rb ON r.region_id = rb.region_id
@@ -110,16 +127,20 @@ def get_projects_and_expenses_by_region_and_year(region_id, year):
                 LEFT JOIN category c ON proj.category_id = c.category_id
             WHERE
                 r.region_id = %s AND rb.budget_year = %s
+            GROUP BY
+                proj.project_id,
+                rb.budget_id,
+                c.category_name
         """)
         cursor.execute(query, (region_id, year))
         columns = [desc[0] for desc in cursor.description]
-        projects_and_expenses = [dict(zip(columns, row)) for row in cursor.fetchall()]
+        unique_projects_with_expenses = [dict(zip(columns, row)) for row in cursor.fetchall()]
         conn.commit()
         cursor.close()
         conn.close()
-        return projects_and_expenses
+        return unique_projects_with_expenses
     except psycopg2.Error as e:
-        print("Error connecting to PostgresSQL:", e)
+        print("Error connecting to PostgreSQL:", e)
         return []
 
 
