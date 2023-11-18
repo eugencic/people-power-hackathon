@@ -53,7 +53,7 @@ def save_pdf_to_db(project_id, filename):
     try:
         conn = psycopg2.connect(**db_params)
         cursor = conn.cursor()
-        query = sql.SQL("UPDATE projects SET pdf_file = %s WHERE project_id = %s")
+        query = sql.SQL("UPDATE projects SET project_pdf_file_name = %s WHERE project_id = %s")
         cursor.execute(query, (filename, project_id))
         conn.commit()
         cursor.close()
@@ -84,6 +84,47 @@ def send_pdf():
 @app.route("/api/get_pdf/<string:filename>")
 def return_pdf(filename):
     return send_file(f"./storage/{filename}")
+
+
+def get_projects_and_expenses_by_region_and_year(region_id, year):
+    try:
+        conn = psycopg2.connect(**db_params)
+        cursor = conn.cursor()
+
+        query = sql.SQL("""
+            SELECT
+                proj.*,
+                e.*,
+                rb.budget_id AS rb_budget_id,
+                rb.budget_amount AS rb_budget_amount,
+                rb.budget_year AS rb_budget_year,
+                rb.region_id AS rb_region_id,
+                c.category_name
+            FROM
+                region r
+                JOIN region_budget rb ON r.region_id = rb.region_id
+                JOIN project proj ON rb.budget_id = proj.budget_id
+                LEFT JOIN expense e ON proj.project_id = e.project_id
+                LEFT JOIN category c ON proj.category_id = c.category_id
+            WHERE
+                r.region_id = %s AND rb.budget_year = %s
+        """)
+        cursor.execute(query, (region_id, year))
+        columns = [desc[0] for desc in cursor.description]
+        projects_and_expenses = [dict(zip(columns, row)) for row in cursor.fetchall()]
+        conn.commit()
+        cursor.close()
+        conn.close()
+        return projects_and_expenses
+    except psycopg2.Error as e:
+        print("Error connecting to PostgresSQL:", e)
+        return []
+
+
+@app.route('/api/region/<int:region_id>/<int:year>', methods=['GET'])
+def get_projects_and_expenses_by_region_and_year_endpoint(region_id, year):
+    projects_and_expenses = get_projects_and_expenses_by_region_and_year(region_id, year)
+    return jsonify(projects_and_expenses)
 
 
 if __name__ == '__main__':
