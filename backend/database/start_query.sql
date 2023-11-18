@@ -96,16 +96,16 @@ INSERT INTO Category (category_name) VALUES
     ('social services');
 
 INSERT INTO Region_budget (budget_amount, budget_year, region_id) VALUES
-    (5000, 2023, 1),
-    (4500, 2022, 1),
-    (6000, 2023, 2),
-    (5500, 2022, 2),
-    (2500, 2023, 3),
-    (3000, 2022, 3),
-    (6000, 2023, 4),
-    (6500, 2022, 4),
-    (7000, 2023, 5),
-    (7500, 2022, 5);
+    (5000, 2023, 2),
+    (4500, 2022, 2),
+    (6000, 2023, 3),
+    (5500, 2022, 3),
+    (2500, 2023, 4),
+    (3000, 2022, 4),
+    (6000, 2023, 5),
+    (6500, 2022, 5),
+    (7000, 2023, 6),
+    (7500, 2022, 6);
 
 -- Insert projects for Edinet region manually
 INSERT INTO Project (
