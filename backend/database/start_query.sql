@@ -112,16 +112,16 @@ INSERT INTO Project (
     project_name, project_description, budget_id, project_status, category_id,
     project_pdf_file_name, project_type, likes, dislikes, votes, necessary_budget, allocated_budget, used_budget
 ) VALUES
-    ('Edinet Project 1', 'Upgrading medical facilities', 3, 'ongoing', 1, 'edinet_project1.pdf', 'Healthcare', 0, 0, 0, 750, 0, 0),
+    ('Edinet Project 1', 'Upgrading medical facilities', 1, 'ongoing', 1, 'edinet_project1.pdf', 'Healthcare', 0, 0, 0, 750, 0, 0),
     ('Edinet Project 2', 'Supporting startups in the tech industry', 1, 'planned', 2, 'edinet_project2.pdf', 'Technology', 0, 0, 0, 1100, 100, 50),
-    ('Edinet Project 3', 'Cleaning up polluted areas', 4, 'finished', 3, 'edinet_project3.pdf', 'Environment', 0, 0, 0, 1400, 0, 0),
-    ('Edinet Project 4', 'Expanding educational infrastructure', 2, 'ongoing', 1, 'edinet_project4.pdf', 'Education', 0, 0, 0, 650, 0, 0),
-    ('Edinet Project 5', 'Preserving historical sites', 7, 'planned', 4, 'edinet_project5.pdf', 'Culture', 0, 0, 0, 900, 50, 20),
-    ('Edinet Project 6', 'Promoting sustainable farming practices', 6, 'ongoing', 5, 'edinet_project6.pdf', 'Agriculture', 0, 0, 0, 1200, 0, 0),
-    ('Edinet Project 7', 'Building a sports facility for the community', 8, 'planned', 6, 'edinet_project7.pdf', 'Sports', 0, 0, 0, 850, 20, 10),
-    ('Edinet Project 8', 'Boosting local tourism', 5, 'ongoing', 8, 'edinet_project8.pdf', 'Tourism', 0, 0, 0, 1300, 80, 30),
-    ('Edinet Project 9', 'Enhancing public transportation', 9, 'planned', 9, 'edinet_project9.pdf', 'Transportation', 0, 0, 0, 1100, 0, 0),
-    ('Edinet Project 10', 'Expanding social support services', 10, 'ongoing', 10, 'edinet_project10.pdf', 'Social Services', 0, 0, 0, 900, 50, 20);
+    ('Edinet Project 3', 'Cleaning up polluted areas', 1, 'finished', 3, 'edinet_project3.pdf', 'Environment', 0, 0, 0, 1400, 0, 0),
+    ('Edinet Project 4', 'Expanding educational infrastructure', 1, 'ongoing', 1, 'edinet_project4.pdf', 'Education', 0, 0, 0, 650, 0, 0),
+    ('Edinet Project 5', 'Preserving historical sites', 1, 'planned', 4, 'edinet_project5.pdf', 'Culture', 0, 0, 0, 900, 50, 20),
+    ('Edinet Project 6', 'Promoting sustainable farming practices', 1, 'ongoing', 5, 'edinet_project6.pdf', 'Agriculture', 0, 0, 0, 1200, 0, 0),
+    ('Edinet Project 7', 'Building a sports facility for the community', 2, 'planned', 6, 'edinet_project7.pdf', 'Sports', 0, 0, 0, 850, 20, 10),
+    ('Edinet Project 8', 'Boosting local tourism', 2, 'ongoing', 8, 'edinet_project8.pdf', 'Tourism', 0, 0, 0, 1300, 80, 30),
+    ('Edinet Project 9', 'Enhancing public transportation', 2, 'planned', 9, 'edinet_project9.pdf', 'Transportation', 0, 0, 0, 1100, 0, 0),
+    ('Edinet Project 10', 'Expanding social support services', 2, 'ongoing', 10, 'edinet_project10.pdf', 'Social Services', 0, 0, 0, 900, 50, 20);
 
 -- Edinet
 INSERT INTO Expense (
@@ -183,15 +183,15 @@ INSERT INTO Project (
     project_pdf_file_name, project_type, likes, dislikes, votes, necessary_budget, allocated_budget, used_budget
 ) VALUES
     ('Riscani Project 1', 'Health Clinic Renovation', 3, 'ongoing', 1, 'riscani_project1.pdf', 'Healthcare', 0, 0, 0, 850, 0, 0),
-    ('Riscani Project 2', 'Tech Education Initiative', 1, 'planned', 2, 'riscani_project2.pdf', 'Technology', 0, 0, 0, 1200, 50, 20),
-    ('Riscani Project 3', 'Green Spaces Enhancement', 4, 'finished', 3, 'riscani_project3.pdf', 'Environment', 0, 0, 0, 1600, 0, 0),
-    ('Riscani Project 4', 'School Infrastructure Upgrade', 2, 'ongoing', 1, 'riscani_project4.pdf', 'Education', 0, 0, 0, 700, 0, 0),
-    ('Riscani Project 5', 'Cultural Events Promotion', 7, 'planned', 4, 'riscani_project5.pdf', 'Culture', 0, 0, 0, 950, 70, 30),
-    ('Riscani Project 6', 'Agricultural Training Program', 6, 'ongoing', 5, 'riscani_project6.pdf', 'Agriculture', 0, 0, 0, 1400, 0, 0),
-    ('Riscani Project 7', 'Sports Facility Construction', 8, 'planned', 6, 'riscani_project7.pdf', 'Sports', 0, 0, 0, 800, 40, 15),
-    ('Riscani Project 8', 'Tourism Development Strategy', 5, 'ongoing', 8, 'riscani_project8.pdf', 'Tourism', 0, 0, 0, 1100, 90, 40),
-    ('Riscani Project 9', 'Public Transportation Improvements', 9, 'planned', 9, 'riscani_project9.pdf', 'Transportation', 0, 0, 0, 1000, 0, 0),
-    ('Riscani Project 10', 'Social Services Center Expansion', 10, 'ongoing', 10, 'riscani_project10.pdf', 'Social Services', 0, 0, 0, 800, 40, 15);
+    ('Riscani Project 2', 'Tech Education Initiative', 3, 'planned', 2, 'riscani_project2.pdf', 'Technology', 0, 0, 0, 1200, 50, 20),
+    ('Riscani Project 3', 'Green Spaces Enhancement', 3, 'finished', 3, 'riscani_project3.pdf', 'Environment', 0, 0, 0, 1600, 0, 0),
+    ('Riscani Project 4', 'School Infrastructure Upgrade', 3, 'ongoing', 1, 'riscani_project4.pdf', 'Education', 0, 0, 0, 700, 0, 0),
+    ('Riscani Project 5', 'Cultural Events Promotion', 3, 'planned', 4, 'riscani_project5.pdf', 'Culture', 0, 0, 0, 950, 70, 30),
+    ('Riscani Project 6', 'Agricultural Training Program', 3, 'ongoing', 5, 'riscani_project6.pdf', 'Agriculture', 0, 0, 0, 1400, 0, 0),
+    ('Riscani Project 7', 'Sports Facility Construction', 3, 'planned', 6, 'riscani_project7.pdf', 'Sports', 0, 0, 0, 800, 40, 15),
+    ('Riscani Project 8', 'Tourism Development Strategy', 4, 'ongoing', 8, 'riscani_project8.pdf', 'Tourism', 0, 0, 0, 1100, 90, 40),
+    ('Riscani Project 9', 'Public Transportation Improvements', 4, 'planned', 9, 'riscani_project9.pdf', 'Transportation', 0, 0, 0, 1000, 0, 0),
+    ('Riscani Project 10', 'Social Services Center Expansion', 4, 'ongoing', 10, 'riscani_project10.pdf', 'Social Services', 0, 0, 0, 800, 40, 15);
 
 INSERT INTO Expense (
     project_id, expense_name, expense_amount, expense_pdf_file_name
@@ -252,32 +252,32 @@ INSERT INTO Project (
     project_name, project_description, budget_id, project_status, category_id,
     project_pdf_file_name, project_type, likes, dislikes, votes, necessary_budget, allocated_budget, used_budget
 ) VALUES
-    ('Glodeni Project 1', 'Health Clinic Renovation', 3, 'ongoing', 1, 'glodeni_project1.pdf', 'Healthcare', 0, 0, 0, 800, 0, 0),
-    ('Glodeni Project 2', 'Tech Education Initiative', 1, 'planned', 2, 'glodeni_project2.pdf', 'Technology', 0, 0, 0, 1100, 60, 25),
-    ('Glodeni Project 3', 'Green Spaces Enhancement', 4, 'finished', 3, 'glodeni_project3.pdf', 'Environment', 0, 0, 0, 1500, 0, 0),
-    ('Glodeni Project 4', 'School Infrastructure Upgrade', 2, 'ongoing', 1, 'glodeni_project4.pdf', 'Education', 0, 0, 0, 700, 0, 0),
-    ('Glodeni Project 5', 'Cultural Events Promotion', 7, 'planned', 4, 'glodeni_project5.pdf', 'Culture', 0, 0, 0, 900, 40, 15),
-    ('Glodeni Project 6', 'Agricultural Training Program', 6, 'ongoing', 5, 'glodeni_project6.pdf', 'Agriculture', 0, 0, 0, 1300, 0, 0),
-    ('Glodeni Project 7', 'Sports Facility Construction', 8, 'planned', 6, 'glodeni_project7.pdf', 'Sports', 0, 0, 0, 750, 30, 10),
-    ('Glodeni Project 8', 'Tourism Development Strategy', 5, 'ongoing', 8, 'glodeni_project8.pdf', 'Tourism', 0, 0, 0, 1200, 80, 35),
-    ('Glodeni Project 9', 'Public Transportation Improvements', 9, 'planned', 9, 'glodeni_project9.pdf', 'Transportation', 0, 0, 0, 1000, 0, 0),
-    ('Glodeni Project 10', 'Social Services Center Expansion', 10, 'ongoing', 10, 'glodeni_project10.pdf', 'Social Services', 0, 0, 0, 750, 30, 10);
+    ('Glodeni Project 1', 'Health Clinic Renovation', 5, 'ongoing', 1, 'glodeni_project1.pdf', 'Healthcare', 0, 0, 0, 800, 0, 0),
+    ('Glodeni Project 2', 'Tech Education Initiative', 5, 'planned', 2, 'glodeni_project2.pdf', 'Technology', 0, 0, 0, 1100, 60, 25),
+    ('Glodeni Project 3', 'Green Spaces Enhancement', 5, 'finished', 3, 'glodeni_project3.pdf', 'Environment', 0, 0, 0, 1500, 0, 0),
+    ('Glodeni Project 4', 'School Infrastructure Upgrade', 5, 'ongoing', 1, 'glodeni_project4.pdf', 'Education', 0, 0, 0, 700, 0, 0),
+    ('Glodeni Project 5', 'Cultural Events Promotion', 5, 'planned', 4, 'glodeni_project5.pdf', 'Culture', 0, 0, 0, 900, 40, 15),
+    ('Glodeni Project 6', 'Agricultural Training Program', 5, 'ongoing', 5, 'glodeni_project6.pdf', 'Agriculture', 0, 0, 0, 1300, 0, 0),
+    ('Glodeni Project 7', 'Sports Facility Construction', 5, 'planned', 6, 'glodeni_project7.pdf', 'Sports', 0, 0, 0, 750, 30, 10),
+    ('Glodeni Project 8', 'Tourism Development Strategy', 6, 'ongoing', 8, 'glodeni_project8.pdf', 'Tourism', 0, 0, 0, 1200, 80, 35),
+    ('Glodeni Project 9', 'Public Transportation Improvements', 6, 'planned', 9, 'glodeni_project9.pdf', 'Transportation', 0, 0, 0, 1000, 0, 0),
+    ('Glodeni Project 10', 'Social Services Center Expansion', 6, 'ongoing', 10, 'glodeni_project10.pdf', 'Social Services', 0, 0, 0, 750, 30, 10);
 
 -- Glodeni
 INSERT INTO Project (
     project_name, project_description, budget_id, project_status, category_id,
     project_pdf_file_name, project_type, likes, dislikes, votes, necessary_budget, allocated_budget, used_budget
 ) VALUES
-    ('Glodeni Project 1', 'Health Clinic Renovation', 3, 'ongoing', 1, 'glodeni_project1.pdf', 'Healthcare', 0, 0, 0, 900, 0, 0),
-    ('Glodeni Project 2', 'Tech Education Initiative', 1, 'planned', 2, 'glodeni_project2.pdf', 'Technology', 0, 0, 0, 1300, 60, 25),
-    ('Glodeni Project 3', 'Green Spaces Enhancement', 4, 'finished', 3, 'glodeni_project3.pdf', 'Environment', 0, 0, 0, 1700, 0, 0),
-    ('Glodeni Project 4', 'School Infrastructure Upgrade', 2, 'ongoing', 1, 'glodeni_project4.pdf', 'Education', 0, 0, 0, 750, 0, 0),
+    ('Glodeni Project 1', 'Health Clinic Renovation', 7, 'ongoing', 1, 'glodeni_project1.pdf', 'Healthcare', 0, 0, 0, 900, 0, 0),
+    ('Glodeni Project 2', 'Tech Education Initiative', 7, 'planned', 2, 'glodeni_project2.pdf', 'Technology', 0, 0, 0, 1300, 60, 25),
+    ('Glodeni Project 3', 'Green Spaces Enhancement', 7, 'finished', 3, 'glodeni_project3.pdf', 'Environment', 0, 0, 0, 1700, 0, 0),
+    ('Glodeni Project 4', 'School Infrastructure Upgrade', 7, 'ongoing', 1, 'glodeni_project4.pdf', 'Education', 0, 0, 0, 750, 0, 0),
     ('Glodeni Project 5', 'Cultural Events Promotion', 7, 'planned', 4, 'glodeni_project5.pdf', 'Culture', 0, 0, 0, 1000, 80, 35),
-    ('Glodeni Project 6', 'Agricultural Training Program', 6, 'ongoing', 5, 'glodeni_project6.pdf', 'Agriculture', 0, 0, 0, 1500, 0, 0),
-    ('Glodeni Project 7', 'Sports Facility Construction', 8, 'planned', 6, 'glodeni_project7.pdf', 'Sports', 0, 0, 0, 850, 30, 10),
-    ('Glodeni Project 8', 'Tourism Development Strategy', 5, 'ongoing', 8, 'glodeni_project8.pdf', 'Tourism', 0, 0, 0, 1200, 100, 45),
-    ('Glodeni Project 9', 'Public Transportation Improvements', 9, 'planned', 9, 'glodeni_project9.pdf', 'Transportation', 0, 0, 0, 1100, 0, 0),
-    ('Glodeni Project 10', 'Social Services Center Expansion', 10, 'ongoing', 10, 'glodeni_project10.pdf', 'Social Services', 0, 0, 0, 900, 30, 10);
+    ('Glodeni Project 6', 'Agricultural Training Program', 7, 'ongoing', 5, 'glodeni_project6.pdf', 'Agriculture', 0, 0, 0, 1500, 0, 0),
+    ('Glodeni Project 7', 'Sports Facility Construction', 7, 'planned', 6, 'glodeni_project7.pdf', 'Sports', 0, 0, 0, 850, 30, 10),
+    ('Glodeni Project 8', 'Tourism Development Strategy', 8, 'ongoing', 8, 'glodeni_project8.pdf', 'Tourism', 0, 0, 0, 1200, 100, 45),
+    ('Glodeni Project 9', 'Public Transportation Improvements', 8, 'planned', 9, 'glodeni_project9.pdf', 'Transportation', 0, 0, 0, 1100, 0, 0),
+    ('Glodeni Project 10', 'Social Services Center Expansion', 8, 'ongoing', 10, 'glodeni_project10.pdf', 'Social Services', 0, 0, 0, 900, 30, 10);
 
 INSERT INTO Expense (
     project_id, expense_name, expense_amount, expense_pdf_file_name
