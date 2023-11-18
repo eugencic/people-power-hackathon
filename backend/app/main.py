@@ -1,10 +1,12 @@
 from flask import Flask, flash, request, redirect, send_file, jsonify
+from flask_cors import CORS
 import psycopg2
 from psycopg2 import sql
 import os
 from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
+CORS(app)
 
 db_params = {
     'dbname': 'database',
