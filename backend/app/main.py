@@ -85,12 +85,12 @@ def send_pdf():
 def return_pdf(filename):
     return send_file(f"./storage/{filename}")
 
+
 def get_projects_and_expenses_by_region_and_year(region_id, year):
     try:
         conn = psycopg2.connect(**db_params)
         cursor = conn.cursor()
 
-        # Fetch projects and expenses by region and year
         query = sql.SQL("""
             SELECT
                 proj.*,
@@ -110,20 +110,20 @@ def get_projects_and_expenses_by_region_and_year(region_id, year):
         cursor.execute(query, (region_id, year))
         columns = [desc[0] for desc in cursor.description]
         projects_and_expenses = [dict(zip(columns, row)) for row in cursor.fetchall()]
-
         conn.commit()
         cursor.close()
         conn.close()
-
         return projects_and_expenses
     except psycopg2.Error as e:
-        print("Error connecting to PostgreSQL:", e)
+        print("Error connecting to PostgresSQL:", e)
         return []
+
 
 @app.route('/api/region/<int:region_id>/<int:year>', methods=['GET'])
 def get_projects_and_expenses_by_region_and_year_endpoint(region_id, year):
     projects_and_expenses = get_projects_and_expenses_by_region_and_year(region_id, year)
     return jsonify(projects_and_expenses)
+
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
