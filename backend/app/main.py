@@ -67,7 +67,8 @@ def save_pdf_to_db(project_id, filename):
     except psycopg2.Error as e:
         print("Error connecting to PostgreSQL:", e)
 
-@app.route('/send_pdf', methods=['POST'])
+
+@app.route('api/send_pdf', methods=['GET', 'POST'])
 def upload_file():
     if 'file' not in request.files or 'project_id' not in request.form:
         flash('Invalid request')
@@ -89,10 +90,11 @@ def upload_file():
         save_pdf_to_db(project_id, filename)
 
         return jsonify({"success": True, "message": "File uploaded and database updated successfully"})
-    
+
     return jsonify({"success": False, "message": "Invalid file format"})
 
-@app.route("/get_pdf/<string:filename>")
+
+@app.route("api/get_pdf/<string:filename>")
 def return_pdf(filename):
     return send_file(f"./storage/{filename}")
 

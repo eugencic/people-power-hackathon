@@ -18,7 +18,7 @@ services:
     networks:
       - mynetwork
     volumes:
-      - pgdata:/var/lib/postgresql/data
+      - ./database:/var/lib/postgresql/data
 
 networks:
   mynetwork:
