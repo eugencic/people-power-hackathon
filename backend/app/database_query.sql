@@ -26,7 +26,8 @@ CREATE TABLE Projects (
     project_budget INT NOT NULL,
     budget_id INT REFERENCES Region_budget(budget_id),
     project_status VARCHAR(255) NOT NULL,
-    category_id INT REFERENCES Category(category_id)
+    category_id INT REFERENCES Category(category_id),
+    pdf_file VARCHAR(255) NOT NULL
 );
 
 -- Insert more sample data into Region table for Moldova

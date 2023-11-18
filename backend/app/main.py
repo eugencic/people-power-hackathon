@@ -52,21 +52,45 @@ def allowed_file(filename):
         filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 
-@app.route('/send_pdf', methods=['GET', 'POST'])
-def upload_file():
-    if request.method == 'POST':
-        if 'file' not in request.files:
-            flash('No file part')
-            return redirect(request.url)
-        file = request.files['file']
-        if file.filename == '':
-            flash('No selected file')
-            return redirect(request.url)
-        if file and allowed_file(file.filename):
-            filename = secure_filename(file.filename)
-            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-    return "New file uploaded"
+def save_pdf_to_db(project_id, filename):
+    try:
+        conn = psycopg2.connect(**db_params)
+        cursor = conn.cursor()
 
+        # Update the Projects table with the PDF file name
+        query = sql.SQL("UPDATE projects SET pdf_file = %s WHERE project_id = %s")
+        cursor.execute(query, (filename, project_id))
+
+        conn.commit()
+        cursor.close()
+        conn.close()
+    except psycopg2.Error as e:
+        print("Error connecting to PostgreSQL:", e)
+
+@app.route('/send_pdf', methods=['POST'])
+def upload_file():
+    if 'file' not in request.files or 'project_id' not in request.form:
+        flash('Invalid request')
+        return redirect(request.url)
+
+    file = request.files['file']
+    project_id = request.form['project_id']
+
+    if file.filename == '':
+        flash('No selected file')
+        return redirect(request.url)
+
+    if file and allowed_file(file.filename):
+        filename = secure_filename(file.filename)
+        file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+        file.save(file_path)
+
+        # Save the PDF file information to the database
+        save_pdf_to_db(project_id, filename)
+
+        return jsonify({"success": True, "message": "File uploaded and database updated successfully"})
+    
+    return jsonify({"success": False, "message": "Invalid file format"})
 
 @app.route("/get_pdf/<string:filename>")
 def return_pdf(filename):
