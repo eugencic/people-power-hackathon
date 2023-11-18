@@ -53,7 +53,7 @@ def save_pdf_to_db(project_id, filename):
     try:
         conn = psycopg2.connect(**db_params)
         cursor = conn.cursor()
-        query = sql.SQL("UPDATE projects SET pdf_file = %s WHERE project_id = %s")
+        query = sql.SQL("UPDATE projects SET project_pdf_file_name = %s WHERE project_id = %s")
         cursor.execute(query, (filename, project_id))
         conn.commit()
         cursor.close()
