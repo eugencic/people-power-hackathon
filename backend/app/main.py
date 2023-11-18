@@ -10,8 +10,9 @@ db_params = {
     'dbname': 'database',
     'user': 'postgres',
     'password': 'password',
-    'host': 'localhost',
-    'port': '5435'
+    'host': 'database',
+    # 'host': 'localhost',
+    # 'port': '5435'
 }
 
 
@@ -86,4 +87,4 @@ def return_pdf(filename):
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=5000, debug=True)

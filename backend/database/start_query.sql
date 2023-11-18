@@ -31,17 +31,48 @@ CREATE TABLE Projects (
 );
 
 -- Insert more sample data into Region table for Moldova
-INSERT INTO Region (region_name) VALUES
-    ('Chisinau'),
-    ('Balti'),
-    ('Cahul'),
-    ('Tiraspol'),
-    ('Soroca'),
-    ('Orhei'),
-    ('Comrat'),
-    ('Ungheni'),
-    ('Dubasari'),
-    ('Edinet');
+INSERT INTO Region (region_id, region_name) VALUES (2, 'Edinet');
+INSERT INTO Region (region_id, region_name) VALUES (3, 'Riscani');
+INSERT INTO Region (region_id, region_name) VALUES (4, 'Glodeni');
+INSERT INTO Region (region_id, region_name) VALUES (1, 'Briceni');
+INSERT INTO Region (region_id, region_name) VALUES (5, 'Falesti');
+INSERT INTO Region (region_id, region_name) VALUES (6, 'Ungheni');
+INSERT INTO Region (region_id, region_name) VALUES (7, 'Nisporeni');
+INSERT INTO Region (region_id, region_name) VALUES (8, 'Hincesti');
+INSERT INTO Region (region_id, region_name) VALUES (9, 'Leova');
+INSERT INTO Region (region_id, region_name) VALUES (10, 'Cantemir');
+INSERT INTO Region (region_id, region_name) VALUES (11, 'Cahul');
+INSERT INTO Region (region_id, region_name) VALUES (12, 'Ocnita');
+INSERT INTO Region (region_id, region_name) VALUES (13, 'Donduseni');
+INSERT INTO Region (region_id, region_name) VALUES (14, 'Soroca');
+INSERT INTO Region (region_id, region_name) VALUES (15, 'Camenca');
+INSERT INTO Region (region_id, region_name) VALUES (16, 'Rezina');
+INSERT INTO Region (region_id, region_name) VALUES (17, 'StingaNistrului');
+INSERT INTO Region (region_id, region_name) VALUES (18, 'Grigoriopol');
+INSERT INTO Region (region_id, region_name) VALUES (19, 'Bender');
+INSERT INTO Region (region_id, region_name) VALUES (20, 'StefanVoda');
+INSERT INTO Region (region_id, region_name) VALUES (21, 'Causeni');
+INSERT INTO Region (region_id, region_name) VALUES (22, 'Cimislia');
+INSERT INTO Region (region_id, region_name) VALUES (23, 'Basarabeasca');
+INSERT INTO Region (region_id, region_name) VALUES (24, 'Taraclia');
+INSERT INTO Region (region_id, region_name) VALUES (25, 'Comrat');
+INSERT INTO Region (region_id, region_name) VALUES (26, 'Comrat');
+INSERT INTO Region (region_id, region_name) VALUES (27, 'Comrat');
+INSERT INTO Region (region_id, region_name) VALUES (28, 'Criuleni');
+INSERT INTO Region (region_id, region_name) VALUES (29, 'Straseni');
+INSERT INTO Region (region_id, region_name) VALUES (30, 'AneniiNoi');
+INSERT INTO Region (region_id, region_name) VALUES (31, 'Orhei');
+INSERT INTO Region (region_id, region_name) VALUES (32, 'Transnistria');
+INSERT INTO Region (region_id, region_name) VALUES (33, 'Chisinau');
+INSERT INTO Region (region_id, region_name) VALUES (34, 'Telenesti');
+INSERT INTO Region (region_id, region_name) VALUES (35, 'Soldanesti');
+INSERT INTO Region (region_id, region_name) VALUES (36, 'Floresti');
+INSERT INTO Region (region_id, region_name) VALUES (37, 'Rezina');
+INSERT INTO Region (region_id, region_name) VALUES (38, 'Ialoveni');
+INSERT INTO Region (region_id, region_name) VALUES (39, 'Calarasi');
+INSERT INTO Region (region_id, region_name) VALUES (40, 'Drochia');
+INSERT INTO Region (region_id, region_name) VALUES (41, 'Singerei');
+INSERT INTO Region (region_id, region_name) VALUES (42, 'Balti');
 
 -- Insert more sample data into Category table
 INSERT INTO Category (category_name) VALUES
