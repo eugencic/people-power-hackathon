@@ -18,11 +18,9 @@ services:
     networks:
       - mynetwork
     volumes:
-      - ./database:/var/lib/postgresql/data
+      - ./database:/docker-entrypoint-initdb.d
+    command: ["postgres", "-c", "max_connections=200"]
 
 networks:
   mynetwork:
     driver: bridge
-
-volumes:
-  pgdata:
