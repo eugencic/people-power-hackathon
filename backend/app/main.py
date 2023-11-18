@@ -98,12 +98,14 @@ def get_projects_and_expenses_by_region_and_year(region_id, year):
                 rb.budget_id AS rb_budget_id,
                 rb.budget_amount AS rb_budget_amount,
                 rb.budget_year AS rb_budget_year,
-                rb.region_id AS rb_region_id
+                rb.region_id AS rb_region_id,
+                c.category_name
             FROM
                 region r
                 JOIN region_budget rb ON r.region_id = rb.region_id
                 JOIN project proj ON rb.budget_id = proj.budget_id
                 LEFT JOIN expense e ON proj.project_id = e.project_id
+                LEFT JOIN category c ON proj.category_id = c.category_id
             WHERE
                 r.region_id = %s AND rb.budget_year = %s
         """)
