@@ -42,11 +42,6 @@ def get_records(table_name):
     return jsonify(records)
 
 
-@app.route("/get_pdf/<string:filename>")
-def return_pdf(filename):
-    return send_file(f"./storage/{filename}")
-
-
 UPLOAD_FOLDER = './storage'
 ALLOWED_EXTENSIONS = {'pdf'}
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
