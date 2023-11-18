@@ -2,13 +2,14 @@ import './Home.css';
 import { useRef } from 'react';
 import MySvg from '../../assets/map.svg';
 import { ReactSVG } from 'react-svg';
+import { useNavigate } from 'react-router-dom';
 
 function Home() {
   const tooltipRef = useRef();
-  const handleClickRef = useRef();
+  const navigate = useNavigate();
 
-  const handlePathClick = (pathData) => {
-    console.log('Path clicked:', pathData);
+  const handlePathClick = (id) => {
+    navigate(`/regions/${id}`);
   };
 
   function mouseEntered(e, data) {
@@ -42,11 +43,9 @@ function Home() {
       const paths = svgElement.querySelectorAll('path');
 
       paths.forEach((path, index) => {
-        handleClickRef.current = () => {
-          handlePathClick({ id: index, data: path.getAttribute('name') });
-        };
-
-        path.addEventListener('click', handleClickRef.current);
+        path.addEventListener('click', () => {
+          handlePathClick(path.getAttribute('id'));
+        });
         path.addEventListener('mouseenter', (e) => {
           mouseEntered(e, { name: path.getAttribute('name') });
         });
