@@ -4,7 +4,7 @@ import android.content.Context
 import com.dropdatabase.hackathon.common.network.Dispatcher
 import com.dropdatabase.hackathon.common.network.HackathonDispatchers
 import com.dropdatabase.hackathon.core.data.model.Expense
-import com.dropdatabase.hackathon.core.data.model.Projects
+import com.dropdatabase.hackathon.core.data.model.Project
 import com.dropdatabase.hackathon.core.data.model.Region
 import com.dropdatabase.hackathon.core.data.model.Regions
 import com.dropdatabase.hackathon.core.network.api.HackathonNetwork
@@ -20,44 +20,46 @@ class HackathonRepositoryImpl @Inject constructor(
     private val network: HackathonNetwork,
     @ApplicationContext private val applicationContext: Context
 ) : HackathonRepository {
-    override fun getProjects(regionId: Int, year: Int): Flow<Projects> = flow {
+    override fun getProjects(regionId: Int, year: Int): Flow<List<Project>> = flow {
         val getProjectsResult = try {
             network.getRegionProjects(regionId, year)
         } catch (e: Exception) {
-            emit(defaultProjects())
+            emit(emptyList())
             return@flow
         }
 
-        val result = getProjectsResult.body()?.let { responseBody ->
-            Projects(
-                allocatedBudget = responseBody.allocatedBudget,
-                budgetId = responseBody.budgetId,
-                categoryId = responseBody.categoryId,
-                categoryName = responseBody.categoryName,
-                dislikes = responseBody.dislikes,
-                expenses = responseBody.expenses.map { expense ->
-                    Expense(
-                        expenseAmount = expense.expenseAmount,
-                        expenseId = expense.expenseId,
-                        expenseName = expense.expenseName,
-                        expensePdfFileName = expense.expensePdfFileName
-                    )
-                },
-                likes = responseBody.likes,
-                necessaryBudget = responseBody.necessaryBudget,
-                projectDescription = responseBody.projectDescription,
-                projectId = responseBody.projectId,
-                projectName = responseBody.projectName,
-                projectPdfFileName = responseBody.projectPdfFileName,
-                projectStatus = responseBody.projectStatus,
-                rbBudgetAmount = responseBody.rbBudgetAmount,
-                rbBudgetId = responseBody.rbBudgetId,
-                rbBudgetYear = responseBody.rbBudgetYear,
-                rbRegionId = responseBody.rbRegionId,
-                usedBudget = responseBody.usedBudget,
-                votes = responseBody.votes
-            )
-        } ?: defaultProjects()
+        val result = getProjectsResult.body()?.let { response ->
+            response.map { responseBody ->
+                Project(
+                    allocatedBudget = responseBody.allocatedBudget,
+                    budgetId = responseBody.budgetId,
+                    categoryId = responseBody.categoryId,
+                    categoryName = responseBody.categoryName,
+                    dislikes = responseBody.dislikes,
+                    expenses = responseBody.expenses.map { expense ->
+                        Expense(
+                            expenseAmount = expense.expenseAmount,
+                            expenseId = expense.expenseId,
+                            expenseName = expense.expenseName,
+                            expensePdfFileName = expense.expensePdfFileName
+                        )
+                    },
+                    likes = responseBody.likes,
+                    necessaryBudget = responseBody.necessaryBudget,
+                    projectDescription = responseBody.projectDescription,
+                    projectId = responseBody.projectId,
+                    projectName = responseBody.projectName,
+                    projectPdfFileName = responseBody.projectPdfFileName,
+                    projectStatus = responseBody.projectStatus,
+                    rbBudgetAmount = responseBody.rbBudgetAmount,
+                    rbBudgetId = responseBody.rbBudgetId,
+                    rbBudgetYear = responseBody.rbBudgetYear,
+                    rbRegionId = responseBody.rbRegionId,
+                    usedBudget = responseBody.usedBudget,
+                    votes = responseBody.votes
+                )
+            }
+        } ?: emptyList()
 
         emit(result)
     }.flowOn(IODispatcher)
@@ -79,10 +81,4 @@ class HackathonRepositoryImpl @Inject constructor(
 
         emit(result)
     }.flowOn(IODispatcher)
-
-    private fun defaultProjects(): Projects {
-        return Projects(
-            0, 0, 0, "", 0, listOf(), 0, 0, "", 0, "", "", "", 0, 0, 0, 0, 0, 0
-        )
-    }
 }

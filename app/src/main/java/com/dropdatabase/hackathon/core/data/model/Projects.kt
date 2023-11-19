@@ -1,6 +1,6 @@
 package com.dropdatabase.hackathon.core.data.model
 
-data class Projects(
+data class Project(
     val allocatedBudget: Int,
     val budgetId: Int,
     val categoryId: Int,

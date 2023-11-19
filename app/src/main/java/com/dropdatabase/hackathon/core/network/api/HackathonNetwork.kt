@@ -20,7 +20,7 @@ private interface HackathonApi {
     suspend fun getRegionProjects(
         @Path("regionId") regionId: Int,
         @Path("year") year: Int
-    ): Response<ProjectsResponse>
+    ): Response<List<ProjectsResponse>>
 
     @GET("region")
     suspend fun getRegions(): Response<List<RegionResponse>>
@@ -43,7 +43,7 @@ class HackathonNetwork @Inject constructor(
         .build()
         .create(HackathonApi::class.java)
 
-    override suspend fun getRegionProjects(regionId: Int, year: Int): Response<ProjectsResponse> =
+    override suspend fun getRegionProjects(regionId: Int, year: Int): Response<List<ProjectsResponse>> =
         networkApi.getRegionProjects(regionId, year)
 
     override suspend fun getRegions(): Response<List<RegionResponse>> = networkApi.getRegions()

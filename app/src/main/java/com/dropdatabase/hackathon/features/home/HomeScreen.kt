@@ -3,8 +3,6 @@
 package com.dropdatabase.hackathon.features.home
 
 import android.content.Context
-import android.util.Log
-import android.widget.Toast
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
@@ -78,10 +76,9 @@ private fun HomeScreen(
                 .padding(paddingValues),
             color = AppTheme.colors.background
         ) {
-            Log.d("HUI", networkState.toString())
             when (networkState) {
                 NetworkState.Loading -> Row(
-                    modifier = modifier.fillMaxWidth(),
+                    modifier = modifier.fillMaxWidth().padding(top = 5.dp),
                     horizontalArrangement = Arrangement.Center
                 ) {
                     AppCircularProgressIndicator()
@@ -101,11 +98,7 @@ private fun HomeScreen(
                     }
                 }
 
-                else -> Toast.makeText(
-                    context,
-                    "Something wrong happened",
-                    Toast.LENGTH_LONG
-                ).show()
+                else -> {}
             }
         }
     }

@@ -2,6 +2,7 @@
 
 package com.dropdatabase.hackathon.features.projects
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
@@ -29,6 +30,7 @@ import androidx.compose.material3.TabRow
 import androidx.compose.material3.Text
 import androidx.compose.material3.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
@@ -38,21 +40,44 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.dropdatabase.hackathon.common.composeui.components.AppBar
+import com.dropdatabase.hackathon.common.composeui.components.AppCircularProgressIndicator
 import com.dropdatabase.hackathon.common.composeui.components.AppFloatingActionButton
+import com.dropdatabase.hackathon.common.composeui.components.AppListItem
 import com.dropdatabase.hackathon.common.composeui.theme.AppTheme
+import com.dropdatabase.hackathon.common.state.NetworkState
+import com.dropdatabase.hackathon.core.data.model.Project
+
+private const val CURRENT_YEAR = 2023
 
 @Composable
 fun ProjectsScreenRoute(
     viewModel: ProjectsViewModel = hiltViewModel(),
     regionId: String?,
     regionName: String?,
-    onNavigateBack: () -> Unit
+    onNavigateBack: () -> Unit,
+    onProjectSelected: (projectId: Int, regionId: Int, year: Int) -> Unit
 ) {
+
+    val uiState by viewModel.uiState.collectAsStateWithLifecycle()
     if (!regionId.isNullOrEmpty()) {
+        LaunchedEffect(key1 = regionId) {
+            viewModel.getProjectsList(regionId.toInt(), CURRENT_YEAR)
+        }
         ProjectsScreen(
             onNavigateBack = onNavigateBack,
-            regionName = regionName!!
+            regionName = regionName!!,
+            networkState = uiState.networkState,
+            projectList = uiState.projectsList,
+            onYearChange = { year -> viewModel.getProjectsList(regionId.toInt(), year) },
+            onProjectSelected = { projectId, year ->
+                onProjectSelected(
+                    projectId,
+                    regionId.toInt(),
+                    year
+                )
+            }
         )
     }
 }
@@ -60,14 +85,22 @@ fun ProjectsScreenRoute(
 @Composable
 private fun ProjectsScreen(
     modifier: Modifier = Modifier,
+    regionName: String,
+    networkState: NetworkState,
+    projectList: List<Project>,
     onNavigateBack: () -> Unit,
-    regionName: String
+    onYearChange: (Int) -> Unit,
+    onProjectSelected: (projectId: Int, year: Int) -> Unit
 ) {
-    var selectedTabIndex by remember { mutableStateOf(0) }
+    var selectedTabIndex by remember { mutableIntStateOf(0) }
     val tabs = listOf("Proiecte de stat", "Proiecte obstesti")
     var showBottomSheet by remember { mutableStateOf(false) }
     val sheetState = rememberModalBottomSheetState()
-    var selectedYear by remember { mutableIntStateOf(0) }
+    var selectedYear by remember { mutableIntStateOf(CURRENT_YEAR) }
+
+    LaunchedEffect(key1 = selectedYear) {
+        onYearChange(selectedYear)
+    }
 
     Scaffold(
         topBar = {
@@ -118,9 +151,33 @@ private fun ProjectsScreen(
                 .fillMaxSize(),
             color = AppTheme.colors.background
         ) {
-            LazyColumn {
-                
+            when (networkState) {
+                NetworkState.Loading -> Row(
+                    modifier = modifier
+                        .fillMaxWidth()
+                        .padding(top = 5.dp),
+                    horizontalArrangement = Arrangement.Center
+                ) {
+                    AppCircularProgressIndicator()
+                }
+
+                NetworkState.Content -> LazyColumn(
+                    modifier = modifier.padding(
+                        top = 5.dp,
+                        start = 10.dp,
+                        end = 10.dp
+                    )
+                ) {
+                    items(projectList, key = { it.projectId }) {
+                        AppListItem(itemText = it.projectName, modifier = modifier.clickable {
+                            onProjectSelected(it.projectId, selectedYear)
+                        })
+                    }
+                }
+
+                else -> {}
             }
+
             if (showBottomSheet) {
                 BottomSheet(
                     modifier = modifier,
@@ -184,6 +241,13 @@ private fun BottomSheet(
 @Preview
 @Composable
 private fun PreviewScreen() {
-    ProjectsScreen(onNavigateBack = { /*TODO*/ }, regionName = "Balti")
+    ProjectsScreen(
+        onNavigateBack = { /*TODO*/ },
+        regionName = "Balti",
+        networkState = NetworkState.Content,
+        projectList = emptyList(),
+        onYearChange = {},
+        onProjectSelected = {_, _ ->}
+    )
 }
 
