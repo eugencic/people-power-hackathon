@@ -26,6 +26,10 @@ android {
     }
 
     buildTypes {
+        debug {
+            buildConfigField("String", "API_URL", "\"http://172.20.115.195:5000/api/\"")
+        }
+
         release {
             isMinifyEnabled = false
             proguardFiles(
