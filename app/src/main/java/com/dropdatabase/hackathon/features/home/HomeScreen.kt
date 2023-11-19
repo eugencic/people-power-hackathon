@@ -37,7 +37,7 @@ import com.dropdatabase.hackathon.core.data.model.Region
 @Composable
 fun HomeScreenRoute(
     viewModel: HomeViewModel = hiltViewModel(),
-    onItemClick: (id: Int) -> Unit
+    onItemClick: (id: Int, name: String) -> Unit
 ) {
 
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
@@ -46,7 +46,7 @@ fun HomeScreenRoute(
         regions = uiState.regionList,
         context = context,
         networkState = uiState.networkState,
-        onItemClick = { regionId -> onItemClick(regionId) }
+        onItemClick = { regionId, name -> onItemClick(regionId, name) }
     )
 }
 
@@ -56,7 +56,7 @@ private fun HomeScreen(
     context: Context,
     regions: List<Region>,
     networkState: NetworkState,
-    onItemClick: (id: Int) -> Unit
+    onItemClick: (id: Int, name: String) -> Unit
 ) {
 
     Scaffold(
@@ -96,7 +96,7 @@ private fun HomeScreen(
                 ) {
                     items(regions, key = { it.regionId }) {
                         AppListItem(modifier = Modifier.clickable {
-                            onItemClick(it.regionId)
+                            onItemClick(it.regionId, it.regionName)
                         }, itemText = it.regionName)
                     }
                 }
@@ -115,6 +115,6 @@ private fun HomeScreen(
 @Composable
 private fun PreviewHomeScreen() {
     val context = LocalContext.current
-    HomeScreen(regions = emptyList(), onItemClick = {}, context = context, networkState = NetworkState.Content)
+    HomeScreen(regions = emptyList(), onItemClick = {_, _ ->}, context = context, networkState = NetworkState.Content)
 }
 

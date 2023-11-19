@@ -46,12 +46,13 @@ import com.dropdatabase.hackathon.common.composeui.theme.AppTheme
 fun ProjectsScreenRoute(
     viewModel: ProjectsViewModel = hiltViewModel(),
     regionId: String?,
+    regionName: String?,
     onNavigateBack: () -> Unit
 ) {
     if (!regionId.isNullOrEmpty()) {
         ProjectsScreen(
             onNavigateBack = onNavigateBack,
-            regionName = viewModel.getRegionTitle(regionId.toInt()).first()
+            regionName = regionName!!
         )
     }
 }

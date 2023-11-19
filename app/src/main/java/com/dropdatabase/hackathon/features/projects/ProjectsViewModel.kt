@@ -23,6 +23,4 @@ class ProjectsViewModel @Inject constructor(
     )
 
     fun getRegionTitle(regionId: Int) = mdRegions.filterIndexed { index, s -> index == regionId }
-
-
 }
